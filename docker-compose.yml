@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  # cache:
+  #   image: redis:6
+  #   restart: always
+  #   ports:
+  #     - 6381:6379
+  # session_store:
+  #   image: redis:6
+  #   restart: always
+  #   ports:
+  #     - 6380:6379
+  redis:
+    image: redis:6
+    restart: always
+    ports:
+      - 6379:6379
+  database:
+    image: postgres:13
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - database:/var/lib/postgresql/data
+
+volumes:
+  database:
