@@ -10,7 +10,7 @@
 #       - completed
 
 # env:
-#   APP_NAME: lifeweb-docker
+#   APP_NAME: app-docker
 #   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
 # jobs:
@@ -31,9 +31,9 @@
 #       - 
 #         run: heroku container:login
 #       -
-#         run: docker pull ghcr.io/lifeweb360/lifeweb:main
+#         run: docker pull ghcr.io/user/app:main
 #       -
-#         run: docker tag ghcr.io/lifeweb360/lifeweb:main $(echo registry.heroku.com/$APP_NAME/web)
+#         run: docker tag ghcr.io/user/app:main $(echo registry.heroku.com/$APP_NAME/web)
 #       -
 #         run: docker push $(echo registry.heroku.com/$APP_NAME/web)
 
@@ -57,8 +57,8 @@
 #       - 
 #         run: heroku container:login
 #       -
-#         run: docker pull ghcr.io/lifeweb360/lifeweb:main
+#         run: docker pull ghcr.io/user/app:main
 #       -
-#         run: docker tag ghcr.io/lifeweb360/lifeweb:main $(echo registry.heroku.com/$APP_NAME/worker)
+#         run: docker tag ghcr.io/user/app:main $(echo registry.heroku.com/$APP_NAME/worker)
 #       -
 #         run: docker push $(echo registry.heroku.com/$APP_NAME/worker)

@@ -10,7 +10,7 @@
 #       - completed
 
 # env:
-#   APP_NAME: lifeweb-docker
+#   APP_NAME: app-docker
 #   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
 # jobs:

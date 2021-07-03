@@ -54,7 +54,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
       -
-        name: Build and push lifeweb360/lifeweb-base-final
+        name: Build and push rails-base-final
         uses: docker/build-push-action@v2
         with:
           context: .
