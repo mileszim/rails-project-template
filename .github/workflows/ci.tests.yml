@@ -13,7 +13,7 @@ on:
 env:
   RUBY_VERSION: 3.0.1
   NODE_VERSION: '16.x'
-  RAILS_MASTER_KEY: ${{ secrets.RAILS_TEST_MASTER_KEY }}
+  RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
   # ImageOS: ubuntu20 # Self Hosted
 
 jobs:
