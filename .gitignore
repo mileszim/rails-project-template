@@ -36,17 +36,16 @@ yarn-debug.log*
 .yarn-integrity
 
 /config/credentials/development.key
-
 /config/credentials/staging.key
-
 /config/credentials/production.key
-
+/config/credentials/test.key
 # @changeme
 # Uncomment this:
 # # dotenv
-# .env
-# .env.local
-# .env.*.local
-# *.env
 
-/config/credentials/test.key
+.env
+.env.local
+.env.*.local
+*.env
+
+dump.rdb

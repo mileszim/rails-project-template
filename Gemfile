@@ -18,6 +18,7 @@ gem 'flipper-active_record'
 gem 'flipper-ui'
 gem 'hiredis'
 gem 'image_processing',      '~> 1.2'                                                    # Use Active Storage variant
+gem 'jquery-rails'
 gem 'lockbox'
 gem 'okcomputer'                                                                         # Health checks
 gem 'paper_trail'

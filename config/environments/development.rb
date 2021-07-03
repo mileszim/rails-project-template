@@ -1,9 +1,12 @@
 require "active_support/core_ext/integer/time"
 
+REDIS_CACHE_URL = ENV["REDIS_CACHE_URL"] || ENV.fetch("REDIS_URL") { "redis://localhost:6379/2" }
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.session_store :cache_store
+  config.cache_store = :redis_cache_store, { url: REDIS_CACHE_URL }
+  config.session_store :cache_store, key: "_sessions_development", compress: true, pool_size: 5, expire_after: 1.year
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
@@ -22,7 +25,14 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
-    config.cache_store = :memory_store
+    config.cache_store = :redis_cache_store, {driver: :hiredis, url: ENV.fetch("REDIS_URL") { "redis://localhost:6379/3" }}
+    config.session_store(:cache_store,
+      key: "_session_development",
+      compress: true,
+      pool_size: 5,
+      expire_after: 1.year
+    )
+
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
@@ -76,4 +86,6 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+
 end

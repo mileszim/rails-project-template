@@ -6,7 +6,18 @@ development:
   channel_prefix: rails_project_template_development
 
 test:
-  adapter: test
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  # @changeme
+  # Change to app name
+  channel_prefix: rails_project_template_test
+
+staging:
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_ACTION_CABLE_URL") { "redis://localhost:6379/1" } %>
+  # @changeme
+  # Change to app name
+  channel_prefix: rails_project_template_staging
 
 production:
   adapter: redis
