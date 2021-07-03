@@ -10,7 +10,7 @@ on:
       - platform/docker/Docker.builder
       - platform/docker/Docker.final
 env:
-  RUBY_VERSION: '3.0.1'
+  RUBY_VERSION: 3.0.1
   NODE_VERSION: '16.x'
   BUILD_MODE: true
   DOCKER_REPO: ghcr.io/mileszim/rails-base-builder
