@@ -1,4 +1,4 @@
-ruby 3.0.0
-nodejs 14.15.1
-yarn latest
-bundler latest
+ruby 3.0.1
+nodejs 15.14.0
+yarn 1.22.10
+bundler 2.2.21

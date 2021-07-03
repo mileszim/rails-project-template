@@ -1,0 +1,26 @@
+# Ensure our dependencies are kept up-to-date
+# See https://docs.github.com/en/code-security/supply-chain-security/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  # Nodejs/Yarn
+  - package-ecosystem: "npm"
+    directory: "/"           # Look for `package.json` and `lock` files in the `root` directory
+    schedule:
+      interval: "daily"      # Check the npm registry for updates every day (weekdays)
+    assignees:               # Assign these users to the PR
+      - "mileszim"
+    reviewers:               # Assign these users to the PR
+      - "mileszim"
+    # labels:                  # Use labels to override the default labels and specify alternative labels for all pull requests raised for a package manager.
+    #   - "dependencies"
+
+  # Ruby
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "mileszim"
+    reviewers:
+      - "mileszim"

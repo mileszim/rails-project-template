@@ -6,6 +6,9 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Require settings
+require_relative "../lib/core_ext/rails/settings"
+
 # @changeme
 # Change `RailsProjectTemplate` to whatever your application name is
 module RailsProjectTemplate
@@ -23,18 +26,16 @@ module RailsProjectTemplate
       url: ENV.fetch("REDIS_CACHE_STORE_URL") { "redis://localhost:6379/1" }
     }
 
+    # ActionController Configuration
     config.action_controller.default_url_options = {
       host: ENV.fetch("DOMAIN") { "localhost" },
       port: ENV.fetch("PORT") { 3000 }
     }
 
+    # ActionMailer Configuration
     config.action_mailer.default_url_options = {
       host: ENV.fetch("DOMAIN") { "localhost" },
       port: ENV.fetch("PORT") { 3000 }
     }
-
-    config.generators do |g|
-      g.orm :active_record, primary_key_type: :uuid
-    end
   end
 end

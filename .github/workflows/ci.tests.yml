@@ -1,0 +1,101 @@
+name: CI - Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+      - production
+  push:
+    branches:
+      - main
+      - production
+
+env:
+  RUBY_VERSION: '3.0.1'
+  NODE_VERSION: '16.x'
+  RAILS_MASTER_KEY: ${{ secrets.RAILS_TEST_MASTER_KEY }}
+  # ImageOS: ubuntu20 # Self Hosted
+
+jobs:
+  rubocop:
+    name: "Linters: Ruby"
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run RuboCop
+        run: bundle exec rubocop --parallel
+
+
+  rspec:
+    name: "Tests: Rails"
+    runs-on: ubuntu-latest # self-hosted if interested
+    services:
+      postgres:
+        image: postgres:13-alpine
+        env:
+          POSTGRES_DB: app
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+      redis:
+        image: redis:6-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+
+    env:
+      RAILS_ENV: test
+      NAMESPACE_ENV: test
+      PGHOST: localhost
+      PGPASSWORD: postgres
+      PGUSER: postgres
+      REDIS_URL: redis://localhost:6379/0
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Find yarn cache location
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: JS package cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install packages
+        run: |
+          yarn install --pure-lockfile
+
+      - name: Setup test database
+        run: bundle exec rails db:schema:load
+
+      - name: Compile Assets
+        run: bundle exec rails assets:precompile
+      
+      - name: Run Tests
+        run: bundle exec rspec

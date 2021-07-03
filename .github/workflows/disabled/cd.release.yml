@@ -1,0 +1,41 @@
+# name: CD - Release
+
+# on:
+#   workflow_run:
+#     workflows:
+#       - "CI - Heroku"
+#     branches:
+#       - main
+#     types: 
+#       - completed
+
+# env:
+#   APP_NAME: lifeweb-docker
+#   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+
+# jobs:
+#   release_web:
+#     name: "CD - Release: Heroku (web)"
+#     runs-on: ubuntu-latest
+#     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+#     steps:
+#       -
+#         name: Checkout
+#         uses: actions/checkout@v2
+#       - 
+#         run: heroku container:login
+#       -
+#         run: heroku container:release web -a $APP_NAME
+
+#   release_worker:
+#     name: "CI - Build: Heroku (worker)"
+#     runs-on: ubuntu-latest
+#     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+#     steps:
+#       -
+#         name: Checkout
+#         uses: actions/checkout@v2
+#       - 
+#         run: heroku container:login
+#       -
+#         run: heroku container:release worker -a $APP_NAME

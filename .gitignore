@@ -48,3 +48,5 @@ yarn-debug.log*
 # .env.local
 # .env.*.local
 # *.env
+
+/config/credentials/test.key

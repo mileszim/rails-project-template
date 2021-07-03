@@ -1,0 +1,5 @@
+auth_token: <%= Rails.applications.credentials.ngrok.auth_token %>
+tunnels:
+  rails-project-template:
+    proto: http
+    addr: 3000

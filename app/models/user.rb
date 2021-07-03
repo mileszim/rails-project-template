@@ -37,5 +37,23 @@
 #  index_users_on_unlock_token                         (unlock_token)
 #
 class User < ApplicationRecord
+  # Attach to Sorcery Gem
+  # @see https://github.com/Sorcery/sorcery
   authenticates_with_sorcery!
+
+  # Attach to PaperTrail
+  # @see https://github.com/paper-trail-gem/paper_trail
+  has_paper_trail
+
+  # Associations
+
+  # Validations
+  validates :email,
+    presence: true,
+    uniqueness: true
+  validates :name,
+    presence: true
+  validates :admin,
+    presence: true,
+    inclusion: { in: [True, False] }
 end

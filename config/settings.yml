@@ -1,0 +1,37 @@
+domains: &domains
+  app: app.zim.dev             # @replace-me: default app domain
+  landing: www.zim.dev         # @replace-me: default www domain
+  localhost: localhost:3000
+  assets: cdn.zim.dev          # @replace-me: default asset host bucket or cdn domain
+
+shared:
+  name: rails-project-template # @replace-me: name of the app
+  lang: en_US.UTF-8
+  email:
+    default: noreply@zim.dev   # @replace-me: default email
+    reply_to: miles@zim.dev    # @replace-me: reply to email
+
+development:
+  domains:
+    <<: *domains
+    app: localhost:3000
+    assets: localhost:3000
+
+test:
+  domains:
+    <<: *domains
+    app: localhost:3000
+    assets: localhost:3000
+
+staging:
+  domains:
+    <<: *domains
+    app: app.staging.zim.dev    # @replace-me: staging app domain
+    assets: cdn.staging.zim.dev # @replace-me: assets cdn app domain
+
+production:
+  domains:
+    <<: *domains
+    app: app.zim.dev            # @replace-me: production app domain
+    assets: cdn.zim.dev         # @replace-me: assets cdn app domain
+

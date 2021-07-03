@@ -1,21 +1,33 @@
 version: '3.9'
 
 services:
-  # cache:
-  #   image: redis:6
-  #   restart: always
-  #   ports:
-  #     - 6381:6379
-  # session_store:
-  #   image: redis:6
-  #   restart: always
-  #   ports:
-  #     - 6380:6379
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - database
+      - redis
+    networks:
+      - frontend
+      - store
+
+  worker:
+    build: .
+    links:
+      - database
+      - redis
+    networks:
+      - store
+
   redis:
     image: redis:6
     restart: always
     ports:
       - 6379:6379
+    networks:
+      - store
+
   database:
     image: postgres:13
     restart: always
@@ -26,6 +38,17 @@ services:
       POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
       - database:/var/lib/postgresql/data
+    networks:
+      - store
+
+  # ngrok:
+  #   image: wernight/ngrok
+  #   links:
+  #     - web
 
 volumes:
   database:
+
+networks:
+  frontend:
+  store:

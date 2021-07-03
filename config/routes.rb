@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   # Admin Panels
   constraints(RouteConstraints::AdminConstraint.new) do
-    mount ActionCable.server => '/cable'
-    mount Sidekiq::Web       => '/sidekiq'
+    mount ActionCable.server       => '/cable'
+    mount Sidekiq::Web             => '/sidekiq'
+    mount Flipper::UI.app(Flipper) => '/flipper'
   end
 
   # /

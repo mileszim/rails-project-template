@@ -1,0 +1,19 @@
+node_modules
+.tool-versions
+.asdfrc
+Gemfile.lock.old
+tmp
+storage
+
+# MacOS
+.DS_Store
+
+# Redis
+dump.rdb
+
+# Secrets
+/config/credentials/development.key
+/config/credentials/staging.key
+/config/credentials/production.key
+/config/credentials/test.key
+/config/credentials/*.pem

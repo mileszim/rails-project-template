@@ -4,7 +4,15 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:user_activation, :reset_password, :remember_me, :session_timeout, :brute_force_protection, :activity_logging]
+Rails.application.config.sorcery.submodules = [
+  :activity_logging,
+  :brute_force_protection,
+  :remember_me,
+  :reset_password,
+  :session_timeout,
+  :user_activation,
+  :magic_login,
+]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -24,12 +32,12 @@ Rails.application.config.sorcery.configure do |config|
   # Set domain option for cookies; Useful for remember_me submodule.
   # Default: `nil`
   #
-  # config.cookie_domain =
+  config.cookie_domain = Rails.settings.dig(:domains, :app)
 
   # Allow the remember_me cookie to be set through AJAX
   # Default: `true`
   #
-  # config.remember_me_httponly =
+  config.remember_me_httponly = false
 
   # Set token randomness. (e.g. user activation tokens)
   # The length of the result string is about 4/3 of `token_randomness`.
@@ -41,12 +49,12 @@ Rails.application.config.sorcery.configure do |config|
   # How long in seconds to keep the session alive.
   # Default: `3600`
   #
-  # config.session_timeout =
+  config.session_timeout = 
 
   # Use the last action as the beginning of session timeout.
   # Default: `false`
   #
-  # config.session_timeout_from_last_action =
+  config.session_timeout_from_last_action = true
 
   # Invalidate active sessions. Requires an `invalidate_sessions_before` timestamp column
   # Default: `false`
@@ -63,17 +71,17 @@ Rails.application.config.sorcery.configure do |config|
   # Will register the time of last user login, every login.
   # Default: `true`
   #
-  # config.register_login_time =
+  # config.register_login_time = true
 
   # Will register the time of last user logout, every logout.
   # Default: `true`
   #
-  # config.register_logout_time =
+  # config.register_logout_time = true
 
   # Will register the time of last user action, every action.
   # Default: `true`
   #
-  # config.register_last_activity_time =
+  # config.register_last_activity_time = true
 
   # -- external --
   # What providers are supported by this app
@@ -235,17 +243,17 @@ Rails.application.config.sorcery.configure do |config|
     # Specify username attributes, for example: [:username, :email].
     # Default: `[:email]`
     #
-    # user.username_attribute_names =
+    user.username_attribute_names = [:email]
 
     # Change *virtual* password attribute, the one which is used until an encrypted one is generated.
     # Default: `:password`
     #
-    # user.password_attribute_name =
+    user.password_attribute_name = :password
 
     # Downcase the username before trying to authenticate, default is false
     # Default: `false`
     #
-    # user.downcase_username_before_authenticating =
+    user.downcase_username_before_authenticating = true
 
     # Change default email attribute.
     # Default: `:email`
@@ -303,7 +311,7 @@ Rails.application.config.sorcery.configure do |config|
     # logins/logouts (to support remembering on multiple browsers simultaneously).
     # Default: false
     #
-    # user.remember_me_token_persist_globally =
+    user.remember_me_token_persist_globally = true
 
     # -- user_activation --
     # The attribute name to hold activation state (active/pending).
@@ -330,7 +338,7 @@ Rails.application.config.sorcery.configure do |config|
     # User activation mailer class.
     # Default: `nil`
     #
-    # user.user_activation_mailer =
+    user.user_activation_mailer = UserMailer
 
     # When true, sorcery will not automatically
     # send the activation details email, and allow you to
@@ -343,7 +351,7 @@ Rails.application.config.sorcery.configure do |config|
     # options: `:deliver_later`, `:deliver_now`, `:deliver`
     # Default: :deliver (Rails version < 4.2) or :deliver_now (Rails version 4.2+)
     #
-    # user.email_delivery_method =
+    user.email_delivery_method = :deliver_later
 
     # Activation needed email method on your mailer class.
     # Default: `:activation_needed_email`
@@ -380,7 +388,7 @@ Rails.application.config.sorcery.configure do |config|
     # Password reset mailer class.
     # Default: `nil`
     #
-    # user.reset_password_mailer =
+    user.reset_password_mailer = UserMailer
 
     # Reset password email method on your mailer class.
     # Default: `:reset_password_email`
@@ -429,7 +437,7 @@ Rails.application.config.sorcery.configure do |config|
     # Magic login mailer class.
     # Default: `nil`
     #
-    # user.magic_login_mailer_class =
+    user.magic_login_mailer_class = UserMailer
 
     # Magic login email method on your mailer class.
     # Default: `:magic_login_email`
@@ -494,7 +502,7 @@ Rails.application.config.sorcery.configure do |config|
     # Unlock token mailer class.
     # Default: `nil`
     #
-    # user.unlock_token_mailer =
+    user.unlock_token_mailer = UserMailer
 
     # -- activity logging --
     # Last login attribute name.

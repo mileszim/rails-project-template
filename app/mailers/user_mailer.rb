@@ -1,5 +1,6 @@
 class UserMailer < ApplicationMailer
-  default from: "noreply@#{ENV.fetch("DOMAIN")}"
+  default  from: Rails.settings.dig(:email, :default)
+  no_reply from: Rails.settings.dig(:email, :no_reply)
 
   def activation_needed_email(user)
     @user = user
