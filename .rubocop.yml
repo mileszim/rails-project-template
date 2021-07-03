@@ -1,0 +1,139 @@
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - "platform/**/*"
+    - "Dockerfile"
+  DisabledByDefault: true
+
+
+
+Layout/EmptyLinesAroundClassBody:
+  Description: "Keeps track of empty lines around class bodies."
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: false
+  VersionAdded: "0.49"
+  VersionChanged: "0.53"
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+    - empty_lines
+    - empty_lines_except_namespace
+    - empty_lines_special
+    - no_empty_lines
+    - beginning_only
+    - ending_only
+
+
+
+Layout/EmptyLinesAroundModuleBody:
+  Description: "Keeps track of empty lines around module bodies."
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: false
+  VersionAdded: "0.49"
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+    - empty_lines
+    - empty_lines_except_namespace
+    - empty_lines_special
+    - no_empty_lines
+  Exclude:
+    - app/presenters/**/*
+    - spec/support/**/*
+
+
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Description: "Checks the spacing inside array literal brackets."
+  Enabled: true
+  VersionAdded: "0.52"
+  EnforcedStyle: no_space
+  SupportedStyles:
+    - space
+    - no_space
+    # "compact" normally requires a space inside the brackets, with the exception
+    # that successive left brackets or right brackets are collapsed together
+    - compact
+  EnforcedStyleForEmptyBrackets: no_space
+  SupportedStylesForEmptyBrackets:
+    - space
+    - no_space
+
+
+
+Layout/SpaceInsideBlockBraces:
+  Description: >-
+                 Checks that block braces have or don"t have surrounding space.
+                 For blocks taking parameters, checks that the left brace has
+                 or doesn"t have trailing space.
+  Enabled: true
+  VersionAdded: "0.49"
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+  EnforcedStyleForEmptyBraces: space
+  SupportedStylesForEmptyBraces:
+    - space
+    - no_space
+  # Space between `{` and `|`. Overrides `EnforcedStyle` if there is a conflict.
+  SpaceBeforeBlockParameters: true
+  Exclude:
+    - spec/**/*
+
+
+
+Layout/SpaceInsideHashLiteralBraces:
+  Description: "Use spaces inside hash literal braces - or don't."
+  StyleGuide: "#spaces-operators"
+  Enabled: true
+  VersionAdded: "0.49"
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+    # "compact" normally requires a space inside hash braces, with the exception
+    # that successive left braces or right braces are collapsed together
+    - compact
+  EnforcedStyleForEmptyBraces: no_space
+  SupportedStylesForEmptyBraces:
+    - space
+    - no_space
+
+
+
+Layout/TrailingEmptyLines:
+  Description: "Checks trailing blank lines and final newline."
+  StyleGuide: "#newline-eof"
+  Enabled: true
+  VersionAdded: "0.49"
+  EnforcedStyle: final_newline
+  SupportedStyles:
+    - final_newline
+    - final_blank_line
+
+
+
+Layout/TrailingWhitespace:
+  Description: "Avoid trailing whitespace."
+  StyleGuide: "#no-trailing-whitespace"
+  Enabled: true
+  VersionAdded: "0.49"
+  VersionChanged: "0.55"
+  AllowInHeredoc: false
+
+
+
+Style/StringLiterals:
+  Description: "Checks if uses of quotes match the configured preference."
+  StyleGuide: "#consistent-string-literals"
+  Enabled: false
+  VersionAdded: "0.9"
+  VersionChanged: "0.36"
+  EnforcedStyle: double_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+  # If `true`, strings which span multiple lines using `\` for continuation must
+  # use the same type of quotes on each line.
+  ConsistentQuotesInMultiline: false
