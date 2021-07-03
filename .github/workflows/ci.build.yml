@@ -19,7 +19,7 @@ env:
   RUBY_VERSION: 3.0.1
   NODE_VERSION: '16.x'
   BUILD_MODE: true
-  DOCKER_REPO: ghcr.io/mileszim/rails-project-template
+  DOCKER_REPO: ghcr.io/mileszim/rails-base-final
 
 jobs:
   build:
