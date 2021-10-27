@@ -1931,10 +1931,10 @@ bytes@3.1.0:
   dependencies:
     morphdom "^2.6.1"
 
-cable_ready@^5.0.0-pre1:
-  version "5.0.0-pre1"
-  resolved "https://registry.yarnpkg.com/cable_ready/-/cable_ready-5.0.0-pre1.tgz#9a78834a99c4eeecd8e4a81ab90b0d2f0fcb04c7"
-  integrity sha512-rwF/jZfh/5Zsab2G567o8A8sEerNotUNiAi+i3N2FGMuaCOp0WpLKo2DhVRU9qrT6fZzFYMnoDiBoKdijPDw+A==
+cable_ready@^5.0.0-pre7:
+  version "5.0.0-pre7"
+  resolved "https://registry.yarnpkg.com/cable_ready/-/cable_ready-5.0.0-pre7.tgz#32ac71d308e5ade507f4a688d43c83a255e9ac92"
+  integrity sha512-UoNj04WDXC2HcrMjia5w9PPljVP0WVKcx0HqkGvkqB7qDLvRWjCleU0Q6QKJGCiV2QYMFqnqnvEohsS7h7cheQ==
   dependencies:
     morphdom "^2.6.1"
 
