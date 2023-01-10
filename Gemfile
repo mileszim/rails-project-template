@@ -61,7 +61,7 @@ group :development do
   gem 'annotate'
   gem 'foreman'
   gem 'letter_opener'
-  gem 'listen',        '~> 3.3'
+  gem 'listen',        '~> 3.8'
   gem 'rspec-rails',   '~> 5.0.0'
   gem 'rubocop-rails',             require: false
   # gem 'rack-mini-profiler', '~> 2.0'   # Display performance information such as SQL time and flame graphs for each request in your browser. https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
