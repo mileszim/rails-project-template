@@ -9,7 +9,7 @@
     "@rails/webpacker": "5.4.0",
     "@sentry/browser": "^6.8.0",
     "@sentry/tracing": "^6.8.0",
-    "ahoy.js": "^0.3.8",
+    "ahoy.js": "^0.4.0",
     "bootstrap": "5",
     "cable_ready": "^5.0.0-pre1",
     "dotenv": "^10.0.0",
