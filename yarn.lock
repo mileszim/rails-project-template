@@ -1931,12 +1931,12 @@ bytes@3.1.0:
   dependencies:
     morphdom "^2.6.1"
 
-cable_ready@^5.0.0-pre1:
-  version "5.0.0-pre1"
-  resolved "https://registry.yarnpkg.com/cable_ready/-/cable_ready-5.0.0-pre1.tgz#9a78834a99c4eeecd8e4a81ab90b0d2f0fcb04c7"
-  integrity sha512-rwF/jZfh/5Zsab2G567o8A8sEerNotUNiAi+i3N2FGMuaCOp0WpLKo2DhVRU9qrT6fZzFYMnoDiBoKdijPDw+A==
+cable_ready@^5.0.0-pre10:
+  version "5.0.0-pre10"
+  resolved "https://registry.yarnpkg.com/cable_ready/-/cable_ready-5.0.0-pre10.tgz#e92ca5b481335dfff95ae148b7b0da86e98001c0"
+  integrity sha512-NevHcu5N5zzUKxyS/cYtkIY6mm7y1anQr9zxu65fqptMOBZS2fukXpz9YEn659yGKyqtCMVNrzkNtkICkBoGAQ==
   dependencies:
-    morphdom "^2.6.1"
+    morphdom "2.6.1"
 
 cacache@^12.0.2:
   version "12.0.4"
@@ -4943,7 +4943,7 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-morphdom@^2.6.1:
+morphdom@2.6.1, morphdom@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/morphdom/-/morphdom-2.6.1.tgz#e868e24f989fa3183004b159aed643e628b4306e"
   integrity sha512-Y8YRbAEP3eKykroIBWrjcfMw7mmwJfjhqdpSvoqinu8Y702nAwikpXcNFDiIkyvfCLxLM9Wu95RZqo4a9jFBaA==
