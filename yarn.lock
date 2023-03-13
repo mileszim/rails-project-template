@@ -1357,12 +1357,10 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ahoy.js@^0.3.8:
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/ahoy.js/-/ahoy.js-0.3.8.tgz#d4ceeaef4049104044d7277359f0c8def941a076"
-  integrity sha512-eY9SproMls3Rz47YLoJA0jwJAFU3SA6WEYeaCSR5ml0ewEe022Ys9ditunGZZWLJYk5iCMfhIBR2OD/PxVl0/Q==
-  dependencies:
-    object-to-formdata "^4.0.0"
+ahoy.js@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/ahoy.js/-/ahoy.js-0.4.3.tgz#1b8403fd9415b0a54a9e36a3d67cab8534d2221c"
+  integrity sha512-l1WDqy4N+pK1LWWOjFabIeQpsuKIuKY08Mzgh6FHHJC2Ry1OJzOCFhSkuHUShMdaYeeaXo6CW5pfefj2GCsjkw==
 
 ajv-errors@^1.0.0:
   version "1.0.1"
@@ -5242,11 +5240,6 @@ object-keys@^1.0.12, object-keys@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/object-keys/-/object-keys-1.1.1.tgz"
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
-
-object-to-formdata@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/object-to-formdata/-/object-to-formdata-4.1.0.tgz#0d7bdd6f9e4efa8c0075a770c11ec92b7bf6c560"
-  integrity sha512-4Ti3VLTspWOUt5QIBl5/BpvLBnr4tbFpZ/FpXKWQFqLslvGIB3ug3jurW/k8iIpoyE6HcZhhmQ6mFiOq1tKGEQ==
 
 object-visit@^1.0.0:
   version "1.0.1"
